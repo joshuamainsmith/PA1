@@ -16,6 +16,7 @@ int option ()
 	cout << "3. Character encoding" << endl;
 	cout << "4. Gravitational force between two objects" << endl;
 	cout << "5. Tangent of a right triangle" << endl;
+	cout << "6. Finding parallel resistance between three resistors" << endl;
 	cin >> opt;
 
 	return opt;
@@ -107,30 +108,55 @@ float tan()
 	return 0;
 }
 
+float parRes ()
+{
+	float parallel_resistance=0;
+	int R1=0, R2=0, R3=0;
+
+	cout << "Enter the values for three resistors in Ohms, seperated by a space." << endl;
+	cin >> R1 >> R2 >> R3;
+	
+	parallel_resistance = 1/(1/(float)R1 + 1/(float)R2 + 1/(float)R3);
+
+	cout << "The parallel resistance between resistors is "  << parallel_resistance << " ohms" << endl;
+
+	return 0;
+}
+
 int main ()
 {
-	int o=0;
-
-	o = option();
+	int o=0, dec=0;
 	
-	switch (o)
+	do
 	{
-		case 1:
-			secondLaw();
-			break;
-		case 2:
-			volCyl();
-			break;
-		case 3:
-			encode();
-			break;
-		case 4:
-			grav();
-			break;
-		case 5:
-			tan();
-			break;
-	}
+		o = option();
+
+		switch (o)
+		{
+			case 1:
+				secondLaw();
+				break;
+			case 2:
+				volCyl();
+				break;
+			case 3:
+				encode();
+				break;
+			case 4:
+				grav();
+				break;
+			case 5:
+				tan();
+				break;
+			case 6:
+				parRes();
+				break;
+		}
+		
+		cout << "Would you like to continue (0 for no, any other number for yes)?" << endl;
+		cin >> dec;
+
+	} while (dec != 0);
 	
 	
 	return 0;
