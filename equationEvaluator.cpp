@@ -17,6 +17,7 @@ int option ()
 	cout << "4. Gravitational force between two objects" << endl;
 	cout << "5. Tangent of a right triangle" << endl;
 	cout << "6. Finding parallel resistance between three resistors" << endl;
+	cout << "7. Distance between two points" << endl;
 	cin >> opt;
 
 	return opt;
@@ -123,6 +124,23 @@ float parRes ()
 	return 0;
 }
 
+float disPoints()
+{
+	float distance=0, x1=0, x2=0, y1=0, y2=0;
+	cout << "Enter the x and y coordinate of the first point (seperated by a space)." << endl;
+	cin >> x1 >> y1;
+
+	cout << "Enter the x and y coordinate of the second point (seperated by a space)." << endl;
+	cin >> x2 >> y2;
+
+	distance = sqrt(pow((x1-x2), 2) + pow((y1-y2), 2));
+
+	cout << "The distance between (" << x1 << "," << y1 << ") and (" << x2 << "," << y2
+		<< ") is " << distance << endl;
+
+	return 0;
+}
+
 int main ()
 {
 	int o=0, dec=0;
@@ -150,6 +168,9 @@ int main ()
 				break;
 			case 6:
 				parRes();
+				break;
+			case 7:
+				disPoints();
 				break;
 		}
 		
