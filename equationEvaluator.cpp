@@ -18,6 +18,7 @@ int option ()
 	cout << "5. Tangent of a right triangle" << endl;
 	cout << "6. Finding parallel resistance between three resistors" << endl;
 	cout << "7. Distance between two points" << endl;
+	cout << "8. General equation" << endl;
 	cin >> opt;
 
 	return opt;
@@ -141,6 +142,29 @@ float disPoints()
 	return 0;
 }
 
+float genEq()
+{
+	int a=0;
+	float x=0, y=0, z=0;
+
+	cout << "The general equation is y= (7/5) * x / a + z - a / (a % 2) + PI" << endl;
+	
+	cout << "Enter the value for x ";
+	cin >> x;
+	
+	cout << "Enter the value for a (needs to be an integer) ";
+	cin >> a;
+	
+	cout << "Enter the value for z ";
+	cin >> z;
+
+	y = ((float)7 / (float)5) * (x / (float)a) + z -((float)a / (a % 2) + PI);
+
+	cout << "y is equal to " << y << endl;
+
+	return 0;
+}
+
 int main ()
 {
 	int o=0, dec=0;
@@ -171,6 +195,9 @@ int main ()
 				break;
 			case 7:
 				disPoints();
+				break;
+			case 8:
+				genEq();
 				break;
 		}
 		
