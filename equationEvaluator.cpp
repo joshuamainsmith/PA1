@@ -24,10 +24,10 @@ int option ()
 	return opt;
 }
 
-float secondLaw ()
+double secondLaw (double mass, double acc)
 {
 	
-	float force=0, mass=0, acc=0;
+	float force=0;
 
 	cout << "What is the mass in kg? ";
 	cin >> mass;
@@ -168,6 +168,7 @@ float genEq()
 int main ()
 {
 	int o=0, dec=0;
+	double num1=0, num2=0;
 	
 	do
 	{
@@ -176,7 +177,7 @@ int main ()
 		switch (o)
 		{
 			case 1:
-				secondLaw();
+				secondLaw(num1, num2);
 				break;
 			case 2:
 				volCyl();
