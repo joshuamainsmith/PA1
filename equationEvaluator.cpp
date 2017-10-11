@@ -225,8 +225,7 @@ int main ()
 		cout << "Would you like to continue (0 for no, any other number for yes)?" << endl;
 		cin >> dec;
 
-	} while (dec != 0);
-	
+	} while (dec != 0);	
 	
 	return 0;
 }
