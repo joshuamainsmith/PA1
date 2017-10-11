@@ -5,6 +5,10 @@
 using namespace std;
 
 #define PI 3.14
+#define G pow(6.67*10, -11)
+
+
+// Menu Screen //
 
 int option ()
 {
@@ -24,11 +28,11 @@ int option ()
 	return opt;
 }
 
-double secondLaw (double mass, double acc)
-{
-	
-	float force=0;
 
+// 1. Newton's Second Law //
+
+double secondLaw (double mass, double acc, double force)
+{
 	cout << "What is the mass in kg? ";
 	cin >> mass;
 	cout << "What is the acceleration in m/s/s? ";
@@ -42,11 +46,11 @@ double secondLaw (double mass, double acc)
 	return 0;
 }
 
-float volCyl ()
-{
-	float r=0, h=0, cVol=0;
-	//const double PI=3.14;
 
+// 2. Volume of a Cylinder //
+
+double volCyl (double r, double h, double cVol)
+{
 	cout << "What is the height? ";
 	cin >> h;
 	cout << "What is the radius? ";
@@ -59,10 +63,12 @@ float volCyl ()
 	return 0;
 }
 
-char encode ()
-{
-	char plainText, encodeText;
 
+
+// 3. Character Encoding //
+
+char encode (char plainText, char encodeText)
+{
 	cout << "Enter plaintext: ";
 	cin >> plainText;
 	
@@ -74,10 +80,12 @@ char encode ()
 
 }
 
-float grav()
-{
-	float m1=0, m2=0, d=0, force=0;
 
+
+// 4. Gravity //
+
+double grav(double m1, double m2, double d, double force)
+{
 	cout << "All mass is in kg, distance is in km" << endl;
 	cout << "Enter the first mass ";
 	cin >> m1;
@@ -86,7 +94,7 @@ float grav()
 	cout << "Enter the distance between the masses ";
 	cin >> d;
 
-	force = (m1 * m2) / (d * d);
+	force = (G * m1 * m2) / (d * d);
 
 	cout << "Mass 1 is " << m1 << " kg ";
 	cout << "Mass 2 is " << m2 << " kg ";
@@ -96,11 +104,13 @@ float grav()
 	return 0;
 }
 
-float tan()
-{
-	float theta=0, tan_theta=0;
 
-	cout << "What is the value of theta? ";
+
+// 5. Tangent //
+
+double tan(double theta, double tan_theta)
+{
+	cout << "What is the value of theta in degrees? ";
 	cin >> theta;
 
 	tan_theta = sin (theta) / cos (theta);
@@ -110,24 +120,28 @@ float tan()
 	return 0;
 }
 
-float parRes ()
-{
-	float parallel_resistance=0;
-	int R1=0, R2=0, R3=0;
 
+
+// 6. Parallel Resistance //
+
+double parRes (int R1, int R2, int R3, double parallel_resistance)
+{
 	cout << "Enter the values for three resistors in Ohms, seperated by a space." << endl;
 	cin >> R1 >> R2 >> R3;
 	
-	parallel_resistance = 1/(1/(float)R1 + 1/(float)R2 + 1/(float)R3);
+	parallel_resistance = 1/(1/(double)R1 + 1/(double)R2 + 1/(double)R3);
 
 	cout << "The parallel resistance between resistors is "  << parallel_resistance << " ohms" << endl;
 
 	return 0;
 }
 
-float disPoints()
+
+
+// 7. Distance Between Two Points //
+
+double disPoints(double x1, double y1, double x2, double y2, double distance)
 {
-	float distance=0, x1=0, x2=0, y1=0, y2=0;
 	cout << "Enter the x and y coordinate of the first point (seperated by a space)." << endl;
 	cin >> x1 >> y1;
 
@@ -142,11 +156,12 @@ float disPoints()
 	return 0;
 }
 
-float genEq()
-{
-	int a=0;
-	float x=0, y=0, z=0;
 
+
+// 8. General Equation //
+
+double genEq(int a, double x, double y, double z)
+{
 	cout << "The general equation is y= (7/5) * x / a + z - a / (a % 2) + PI" << endl;
 	
 	cout << "Enter the value for x ";
@@ -158,17 +173,22 @@ float genEq()
 	cout << "Enter the value for z ";
 	cin >> z;
 
-	y = ((float)7 / (float)5) * (x / (float)a) + z -((float)a / (a % 2) + PI);
+	y = ((double)7 / (double)5) * (x / (double)a) + z -((double)a / (a % 2) + PI);
 
 	cout << "y is equal to " << y << endl;
 
 	return 0;
 }
 
+
+// Main Function //
+
 int main ()
 {
 	int o=0, dec=0;
-	double num1=0, num2=0;
+	double num1=0, num2=0, num3=0, num4=0, result=0;
+	int iNum1=0, iNum2=0, iNum3=0;
+	char ch1, rCh;
 	
 	do
 	{
@@ -176,29 +196,29 @@ int main ()
 
 		switch (o)
 		{
-			case 1:
-				secondLaw(num1, num2);
+			case 1: // Newton's Second Law //
+				secondLaw(num1, num2, result);
 				break;
-			case 2:
-				volCyl();
+			case 2: // Volume of a Cylinder //
+				volCyl(num1, num2, result);
 				break;
-			case 3:
-				encode();
+			case 3: // Character Encoding //
+				encode(ch1, rCh);
 				break;
-			case 4:
-				grav();
+			case 4: // Gravity //
+				grav(num1, num2, num3, result);
 				break;
-			case 5:
-				tan();
+			case 5: // Tangent //
+				tan(num1, result);
 				break;
-			case 6:
-				parRes();
+			case 6: // Parallel Resistance //
+				parRes(iNum1, iNum2, iNum3, result);
 				break;
-			case 7:
-				disPoints();
+			case 7: // Distance Between Points //
+				disPoints(num1, num2, num3, num4, result);
 				break;
-			case 8:
-				genEq();
+			case 8: // General Equation //
+				genEq(iNum1, num1, num2, result);
 				break;
 		}
 		
