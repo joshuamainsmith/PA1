@@ -220,6 +220,9 @@ int main ()
 			case 8: // General Equation //
 				genEq(iNum1, num1, num2, result);
 				break;
+			default:
+				cout << "Choose a valid option." << endl;
+				break;
 		}
 		
 		cout << "Would you like to continue (0 for no, any other number for yes)?" << endl;
